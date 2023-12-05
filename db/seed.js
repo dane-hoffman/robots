@@ -1,11 +1,11 @@
 const client = require('./client.js');
-
+const {createRobot} = require('./robots.js');
 const dropTables = async() => {
 
     try{
 
         await client.query(`
-            DROP TABLE robots;
+            DROP TABLE IF EXISTS robots;
 
         `)
     }catch(err){
@@ -39,13 +39,18 @@ const createTables = async() => {
 
 const syncAndSeed = async() => {
 await client.connect();
-console.log('CONNECTED TO THE DATABSE!');
+console.log('CONNECTED TO THE DATABASE!');
 
 await dropTables();
-console.log('DROPPED TABLES!');
+console.log('TABLES DROPPED!');
 
 await createTables();
-console.log('CREATED TABLES!');
+console.log('TABLES CREATE!');
+
+await createRobot('Ned');
+await createRobot('Ramon');
+await createRobot('xb500');
+console.log('ROBOTS CREATED!')
 
 
 client.end();
