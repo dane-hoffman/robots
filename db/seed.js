@@ -6,5 +6,3 @@ console.log('CONNECTED TO THE DATABSE!');
 }
 //client.end
 syncAndSeed ();
-
-//
