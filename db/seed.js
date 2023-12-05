@@ -4,5 +4,7 @@ const syncAndSeed = async() => {
 await client.connect();
 console.log('CONNECTED TO THE DATABSE!');
 }
-
+//client.end
 syncAndSeed ();
+
+//
